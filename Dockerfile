@@ -19,6 +19,7 @@ RUN apt-get install -y pdftk
 RUN apt-get install -y pngnq
 RUN apt-get install -y poppler-data
 RUN apt-get install -y openjdk-8-jdk maven
+RUN apt-get install -y unzip
 
 ENV PATH=/root/script:$PATH
 
