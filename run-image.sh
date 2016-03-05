@@ -3,5 +3,5 @@ docker run \
 -i \
 -v ~/Pictures:/images \
 -v ~/git/dotfiles/script:/root/script \
--t jisui-linux:16.04 \
+-t sasasin/jisui-linux:latest \
 /bin/bash
