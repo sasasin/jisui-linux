@@ -1,0 +1,35 @@
+---
+- name: dist-upgrade
+  apt: upgrade=dist update_cache=yes
+
+
+- name: install packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - git-core
+    - bash-completion
+    - apt-utils
+    - libjpeg-turbo-progs
+    - curl
+    - wget
+    - imagemagick
+    - libimage-size-perl
+    - libmoose-perl
+    - libpdf-create-perl
+    - optipng
+    - pdftk
+    - pngnq
+    - poppler-data
+    - openjdk-8-jdk
+    - maven
+    - unzip
+
+- name: create git dir
+  file: dest=/home/vagrant/git state=directory
+
+- name: install util commands
+  git: repo=https://github.com/sasasin/dotfiles.git dest=/home/vagrant/git/dotfiles
+
+- name: create link
+  file: src=/home/vagrant/git/dotfiles/script dest=/home/vagrant/bin state=link
+
